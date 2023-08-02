@@ -2,9 +2,9 @@ const initialWagonState = {
     supplies: 100,
     distance: 0,
     days: 0
-};
+}
 
-const reducer = (state = 0, action) => {
+const wagonReducer = (state = initialWagonState, action) => {
     switch (action.type) {
         case 'gather': {
             return {
@@ -32,3 +32,6 @@ const reducer = (state = 0, action) => {
         }
     }
 }
+
+let wagon = wagonReducer(undefined, {});
+console.log(wagon);
