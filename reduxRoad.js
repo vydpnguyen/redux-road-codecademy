@@ -14,10 +14,15 @@ const wagonReducer = (state = initialWagonState, action) => {
             };
         }
         case 'travel': {
-            return {
-                supplies: state.supplies - (20 * action.payload),
-                distance: state.distance + (10 * action.payload),
-                days: state.days + action.payload
+            if (state.supplies < 20 * action.payload) {
+                return state;
+            }
+            else {
+                return {
+                    supplies: state.supplies - (20 * action.payload),
+                    distance: state.distance + (10 * action.payload),
+                    days: state.days + action.payload
+                }
             }
         }
         case 'tippedWagon': {
