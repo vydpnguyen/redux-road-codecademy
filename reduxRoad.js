@@ -34,4 +34,29 @@ const wagonReducer = (state = initialWagonState, action) => {
 }
 
 let wagon = wagonReducer(undefined, {});
+
+// First day
+wagon = wagonReducer(wagon, {
+    type: 'travel',
+    payload: 1
+})
+console.log(wagon);
+
+// Second day
+wagon = wagonReducer(wagon, {
+    type: 'gather',
+})
+console.log(wagon);
+
+// Third day
+wagon = wagonReducer(wagon, {
+    type: 'tippedWagon'
+})
+console.log(wagon);
+
+// Fourth day
+wagon = wagonReducer(wagon, {
+    type: 'travel',
+    payload: 3
+})
 console.log(wagon);
